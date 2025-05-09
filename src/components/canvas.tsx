@@ -75,12 +75,12 @@ const SceneNode = ({
 		<div className="p-4 bg-white rounded shadow min-w-[250px] border border-gray-300">
 			{showVideo && (
 				<video
-				src={`/assets/videos/${id}.mp4`}
-				autoPlay
-				muted
-				loop
-				playsInline
-				className="mb-2 rounded w-[360px] h-[200px] object-cover"
+					src={`/assets/videos/${id}.mp4`}
+					autoPlay
+					muted
+					loop
+					playsInline
+					className="mb-2 rounded w-[360px] h-[200px] object-cover"
 				/>
 			)}
 			<input
@@ -286,9 +286,9 @@ export default function StoryCanvas() {
 		const storyObject = Object.fromEntries(
 			nodes.map((node) => [node.id, node.data])
 		);
-	
+
 		const json = JSON.stringify(storyObject, null, 2);
-	
+
 		const blob = new Blob([json], { type: "application/json" });
 		const url = URL.createObjectURL(blob);
 		const link = document.createElement("a");
@@ -297,12 +297,12 @@ export default function StoryCanvas() {
 		document.body.appendChild(link);
 		link.click();
 		document.body.removeChild(link);
-	
+
 		// Delay video reveal by ~3.5 seconds
 		setTimeout(() => {
 			setShowVideos(true);
 		}, 3500);
-	};	
+	};
 
 	return (
 		<div style={{ width: "100%", height: "100vh", position: "relative" }}>
