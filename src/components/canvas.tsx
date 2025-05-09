@@ -95,34 +95,37 @@ const SceneNode = ({
 				value={localScenario}
 				onChange={(e) => setLocalScenario(e.target.value)}
 				onBlur={(e) => commitFieldUpdate("scenario", e.target.value)}
+				rows={4}
 			/>
 			<Handle type="target" position={Position.Left} />
-			{localChoices.map((choice, index) => (
-				<div key={index} className="flex items-center gap-2 mt-2">
-					<input
-						className="text-xs flex-1"
-						value={choice.text}
-						onChange={(e) => {
-							const newText = e.target.value;
-							// Update local choices array
-							setLocalChoices((prev) =>
-								prev.map((ch, i) =>
-									i === index ? { ...ch, text: newText } : ch
-								)
-							);
-						}}
-						onBlur={(e) =>
-							commitChoiceUpdate(index, e.target.value)
-						}
-					/>
-					<Handle
-						type="source"
-						position={Position.Right}
-						id={choice.id}
-						style={{ top: 80 + index * 30 }}
-					/>
-				</div>
-			))}
+			<div className="mt-3 space-y-2">
+				{localChoices.map((choice, index) => (
+					<div key={index}>
+						<div className="p-2 border border-gray-300 rounded flex items-center gap-2 bg-gray-200">
+							<input
+							className="text-xs flex-1 bg-gray-200 rounded px-1 py-0.5"
+							value={choice.text}
+							onChange={(e) => {
+								const newText = e.target.value;
+								setLocalChoices((prev) =>
+								prev.map((ch, i) => (i === index ? { ...ch, text: newText } : ch))
+								);
+							}}
+							onBlur={(e) => commitChoiceUpdate(index, e.target.value)}
+							/>
+							<Handle
+							type="source"
+							position={Position.Right}
+							id={choice.id}
+							style={{ top: 80 + index * 30 }}
+							/>
+						</div>
+					{index === 0 && localChoices.length > 1 && (
+						<div className="text-[10px] text-center text-gray-500 my-1">or</div>
+					)}
+					</div>
+				))}
+			</div>
 		</div>
 	);
 };
