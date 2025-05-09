@@ -301,6 +301,10 @@ export default function StoryCanvas() {
 		document.body.appendChild(link);
 		link.click();
 		document.body.removeChild(link);
+	};
+
+	const handleSubmitStory = () => {
+		// handleExport();
 
 		// Delay video reveal by ~3.5 seconds
 		setTimeout(() => {
@@ -335,7 +339,7 @@ export default function StoryCanvas() {
 				</button>
 
 				<button
-					onClick={handleExport}
+					onClick={handleSubmitStory}
 					style={{
 						padding: "8px 12px",
 						border: "1px solid #ccc",
@@ -352,14 +356,12 @@ export default function StoryCanvas() {
 					href="/"
 					style={{
 						padding: "8px 12px",
-						background: "#ffffffdd",
 						border: "1px solid #ccc",
 						borderRadius: "6px",
 						cursor: "pointer",
 						fontWeight: "bold",
-						textDecoration: "none",
-						color: "black",
 					}}
+					className="bg-[#8E5E50] text-[#FDF3E6]"
 				>
 					View Story
 				</Link>
