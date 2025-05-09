@@ -57,37 +57,102 @@ const initialNodes: Node[] = [
 		type: "sceneNode",
 		position: { x: 100, y: 100 },
 		data: {
-			title: "Scene 1",
-			scenario: "You see a strange light in the sky.",
+			title: "The Signal in the Sky",
+			scenario:
+				"It's been weeks since the world went quiet. No networks. No broadcasts. Tonight, a single beam of light pulses from the distant mountains, piercing the clouds.",
 			choices: [
-				{ text: "Follow it", id: "choice-0" },
-				{ text: "Ignore it", id: "choice-1" },
+				{ text: "Follow the light", id: "choice-0" },
+				{ text: "Stay and observe", id: "choice-1" },
 			],
 		},
 	},
 	{
 		id: "scene2",
 		type: "sceneNode",
-		position: { x: 500, y: 50 },
+		position: { x: 600, y: 50 },
 		data: {
-			title: "Scene 2",
-			scenario: "You walk into the forest.",
-			choices: [],
+			title: "Crossing the Wastes",
+			scenario:
+				"The highway is cracked and overgrown. You pass collapsed overpasses and rusted-out cars. A faint humming noise begins to trail you.",
+			choices: [
+				{ text: "Investigate the sound", id: "choice-0" },
+				{ text: "Keep moving", id: "choice-1" },
+			],
 		},
 	},
 	{
 		id: "scene3",
 		type: "sceneNode",
-		position: { x: 500, y: 200 },
+		position: { x: 600, y: 300 },
 		data: {
-			title: "Scene 3",
-			scenario: "You go back to sleep.",
-			choices: [],
+			title: "Patterns and Paranoia",
+			scenario:
+				"The signal pulses again, and this time, something responds — a rhythmic flicker from a nearby hilltop. You realize you may not be the only one watching.",
+			choices: [
+				{ text: "Climb to the hill", id: "choice-0" },
+				{ text: "Leave a signal back", id: "choice-1" },
+			],
+		},
+	},
+	{
+		id: "scene4",
+		type: "sceneNode",
+		position: { x: 1100, y: 180 },
+		data: {
+			title: "The Threshold",
+			scenario:
+				"Whether you traveled far or stayed and observed, you now stand on the edge of something vast. The light pulses steadily. A door-shaped silhouette appears before you.",
+			choices: [
+				{ text: "Enter the doorway", id: "choice-0" },
+				{ text: "Turn away", id: "choice-1" },
+			],
 		},
 	},
 ];
 
-const initialEdges: Edge[] = [];
+const initialEdges: Edge[] = [
+	// scene1 choices
+	{
+		id: "e-scene1-choice-0-scene2",
+		source: "scene1",
+		sourceHandle: "choice-0",
+		target: "scene2",
+	},
+	{
+		id: "e-scene1-choice-1-scene3",
+		source: "scene1",
+		sourceHandle: "choice-1",
+		target: "scene3",
+	},
+
+	// scene2 choices
+	{
+		id: "e-scene2-choice-0-scene4",
+		source: "scene2",
+		sourceHandle: "choice-0",
+		target: "scene4",
+	},
+	{
+		id: "e-scene2-choice-1-scene4",
+		source: "scene2",
+		sourceHandle: "choice-1",
+		target: "scene4",
+	},
+
+	// scene3 choices
+	{
+		id: "e-scene3-choice-0-scene4",
+		source: "scene3",
+		sourceHandle: "choice-0",
+		target: "scene4",
+	},
+	{
+		id: "e-scene3-choice-1-scene4",
+		source: "scene3",
+		sourceHandle: "choice-1",
+		target: "scene4",
+	},
+];
 
 export default function StoryCanvas() {
 	const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
