@@ -70,7 +70,7 @@ const SceneNode = ({
 	};
 
 	return (
-		<div className="p-4 bg-white rounded shadow min-w-[250px] border border-gray-300">
+		<div className="p-4 rounded shadow min-w-[250px] border border-gray-300">
 			<input
 				className="font-bold w-full mb-1"
 				value={localTitle}
