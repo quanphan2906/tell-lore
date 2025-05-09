@@ -73,7 +73,7 @@ const SceneNode = ({
 	};
 
 	return (
-		<div className="p-4 bg-white rounded shadow min-w-[250px] border border-gray-300">
+		<div className="p-4 rounded shadow min-w-[250px] border border-gray-300 bg-[#FDF3E6] text-[#8E5E50]">
 			{showVideo && (
 				<video
 					src={`/assets/videos/${id}.mp4`}
@@ -316,17 +316,17 @@ export default function StoryCanvas() {
 					display: "flex",
 					gap: "12px",
 				}}
-				>
+			>
 				<button
 					onClick={addNewScene}
 					style={{
-					padding: "8px 12px",
-					background: "#ffffffdd",
-					border: "1px solid #ccc",
-					borderRadius: "6px",
-					cursor: "pointer",
-					fontWeight: "bold",
+						padding: "8px 12px",
+						border: "1px solid #ccc",
+						borderRadius: "6px",
+						cursor: "pointer",
+						fontWeight: "bold",
 					}}
+					className="bg-[#8E5E50] text-[#FDF3E6]"
 				>
 					+ Add Scene
 				</button>
@@ -334,13 +334,13 @@ export default function StoryCanvas() {
 				<button
 					onClick={handleExport}
 					style={{
-					padding: "8px 12px",
-					background: "#ffffffdd",
-					border: "1px solid #ccc",
-					borderRadius: "6px",
-					cursor: "pointer",
-					fontWeight: "bold",
+						padding: "8px 12px",
+						border: "1px solid #ccc",
+						borderRadius: "6px",
+						cursor: "pointer",
+						fontWeight: "bold",
 					}}
+					className="bg-[#8E5E50] text-[#FDF3E6]"
 				>
 					Submit Story
 				</button>
@@ -348,14 +348,14 @@ export default function StoryCanvas() {
 				<Link
 					href="/"
 					style={{
-					padding: "8px 12px",
-					background: "#ffffffdd",
-					border: "1px solid #ccc",
-					borderRadius: "6px",
-					cursor: "pointer",
-					fontWeight: "bold",
-					textDecoration: "none",
-					color: "black",
+						padding: "8px 12px",
+						background: "#ffffffdd",
+						border: "1px solid #ccc",
+						borderRadius: "6px",
+						cursor: "pointer",
+						fontWeight: "bold",
+						textDecoration: "none",
+						color: "black",
 					}}
 				>
 					View Story
