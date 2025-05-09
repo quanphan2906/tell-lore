@@ -70,7 +70,7 @@ const SceneNode = ({
 	};
 
 	return (
-		<div className="p-4 rounded shadow min-w-[250px] border border-gray-300">
+		<div className="p-4 rounded shadow min-w-[250px] border border-gray-300 bg-[#FDF3E6] text-[#8E5E50]">
 			<input
 				className="font-bold w-full mb-1"
 				value={localTitle}
@@ -295,12 +295,12 @@ export default function StoryCanvas() {
 					left: 16,
 					zIndex: 10,
 					padding: "8px 12px",
-					background: "#ffffffdd",
 					border: "1px solid #ccc",
 					borderRadius: "6px",
 					cursor: "pointer",
 					fontWeight: "bold",
 				}}
+				className="bg-[#8E5E50] text-[#FDF3E6]"
 			>
 				+ Add Scene
 			</button>
@@ -313,12 +313,12 @@ export default function StoryCanvas() {
 					left: 130,
 					zIndex: 10,
 					padding: "8px 12px",
-					background: "#ffffffdd",
 					border: "1px solid #ccc",
 					borderRadius: "6px",
 					cursor: "pointer",
 					fontWeight: "bold",
 				}}
+				className="bg-[#8E5E50] text-[#FDF3E6]"
 			>
 				Submit Story
 			</button>
