@@ -23,7 +23,7 @@ export default function ChoiceButtons({
 			{choices.map((choice, index) => (
 				<motion.button
 					key={index}
-					className="px-6 py-3 bg-black bg-opacity-70 text-white rounded-lg hover:bg-opacity-90 transition-all flex-1 max-w-xs text-center"
+					className="px-6 py-3 bg-transparent text-white rounded-lg hover:bg-opacity-90 transition-all flex-1 max-w-xs text-center border"
 					whileHover={{ scale: 1.05 }}
 					whileTap={{ scale: 0.95 }}
 					onClick={() => onChoiceSelected((index + 1) as 1 | 2)}
