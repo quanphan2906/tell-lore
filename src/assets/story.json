@@ -1,6 +1,6 @@
 {
-	"scenes": [
-		{
+	"scenes": {
+		"scene1": {
 			"id": "scene1",
 			"title": "The Signal in the Sky",
 			"scenario": "It's been weeks since the world went quiet. No networks. No broadcasts. Tonight, a single beam of light pulses from the distant mountains, piercing the clouds.",
@@ -19,7 +19,7 @@
 				}
 			]
 		},
-		{
+		"scene2": {
 			"id": "scene2",
 			"title": "Crossing the Wastes",
 			"scenario": "The highway is cracked and overgrown. You pass collapsed overpasses and rusted-out cars. A faint humming noise begins to trail you.",
@@ -38,7 +38,7 @@
 				}
 			]
 		},
-		{
+		"scene3": {
 			"id": "scene3",
 			"title": "Patterns and Paranoia",
 			"scenario": "The signal pulses again, and this time, something responds — a rhythmic flicker from a nearby hilltop. You realize you may not be the only one watching.",
@@ -57,7 +57,7 @@
 				}
 			]
 		},
-		{
+		"scene4": {
 			"id": "scene4",
 			"title": "The Threshold",
 			"scenario": "Whether you traveled far or stayed and observed, you now stand on the edge of something vast. The light pulses steadily. A door-shaped silhouette appears before you.",
@@ -76,5 +76,5 @@
 				}
 			]
 		}
-	]
+	}
 }
