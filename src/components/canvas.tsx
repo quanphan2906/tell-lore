@@ -16,39 +16,102 @@ import {
 } from "@xyflow/react";
 
 import "@xyflow/react/dist/style.css";
-import { useCallback } from "react";
+import { useCallback, useState, useEffect } from "react";
 
 const SceneNode = ({
+	id,
 	data,
+	setNodes,
 }: {
+	id: string;
 	data: {
 		title: string;
 		scenario: string;
-		choices: { text: string; id: string }[];
+		choices: { text: string; id: string; nextId?: string }[];
 	};
+	setNodes: (updater: (nds: any[]) => any[]) => void;
 }) => {
+	// Local state for inputs to avoid re-render causing lost focus
+	const [localTitle, setLocalTitle] = useState(data.title);
+	const [localScenario, setLocalScenario] = useState(data.scenario);
+	const [localChoices, setLocalChoices] = useState(data.choices);
+
+	// Sync local state with global data when the node loads/updates externally
+	useEffect(() => {
+		setLocalTitle(data.title);
+		setLocalScenario(data.scenario);
+		setLocalChoices(data.choices);
+	}, [data.title, data.scenario, data.choices]);
+
+	// Update global node state on blur events:
+	const commitFieldUpdate = (field: "title" | "scenario", value: string) => {
+		setNodes((nds) =>
+			nds.map((node) =>
+				node.id === id
+					? { ...node, data: { ...node.data, [field]: value } }
+					: node
+			)
+		);
+	};
+
+	const commitChoiceUpdate = (index: number, value: string) => {
+		const updatedChoices = localChoices.map((choice, idx) =>
+			idx === index ? { ...choice, text: value } : choice
+		);
+		setNodes((nds) =>
+			nds.map((node) => {
+				if (node.id !== id) return node;
+				return {
+					...node,
+					data: { ...node.data, choices: updatedChoices },
+				};
+			})
+		);
+	};
+
 	return (
-		<div className="p-4 bg-white rounded shadow min-w-[200px] border border-gray-300">
-			<div className="font-bold">{data.title}</div>
-			<div className="text-sm text-gray-700 my-2">{data.scenario}</div>
+		<div className="p-4 bg-white rounded shadow min-w-[250px] border border-gray-300">
+			<input
+				className="font-bold w-full mb-1"
+				value={localTitle}
+				onChange={(e) => setLocalTitle(e.target.value)}
+				onBlur={(e) => commitFieldUpdate("title", e.target.value)}
+			/>
+			<textarea
+				className="text-sm w-full mb-2"
+				value={localScenario}
+				onChange={(e) => setLocalScenario(e.target.value)}
+				onBlur={(e) => commitFieldUpdate("scenario", e.target.value)}
+			/>
 			<Handle type="target" position={Position.Left} />
-			{data.choices?.map((choice, index) => (
-				<div key={index} className="mt-2 flex items-center">
-					<span className="text-xs">{choice.text}</span>
+			{localChoices.map((choice, index) => (
+				<div key={index} className="flex items-center gap-2 mt-2">
+					<input
+						className="text-xs flex-1"
+						value={choice.text}
+						onChange={(e) => {
+							const newText = e.target.value;
+							// Update local choices array
+							setLocalChoices((prev) =>
+								prev.map((ch, i) =>
+									i === index ? { ...ch, text: newText } : ch
+								)
+							);
+						}}
+						onBlur={(e) =>
+							commitChoiceUpdate(index, e.target.value)
+						}
+					/>
 					<Handle
 						type="source"
 						position={Position.Right}
 						id={choice.id}
-						style={{ top: 80 + index * 20 }}
+						style={{ top: 80 + index * 30 }}
 					/>
 				</div>
 			))}
 		</div>
 	);
-};
-
-const nodeTypes = {
-	sceneNode: SceneNode,
 };
 
 const initialNodes: Node[] = [
@@ -161,12 +224,105 @@ export default function StoryCanvas() {
 	const onConnect = useCallback(
 		(connection: Connection) => {
 			setEdges((eds) => addEdge({ ...connection, animated: true }, eds));
+
+			// Update choice.nextId in source node
+			const { source, sourceHandle, target } = connection;
+			setNodes((nds) =>
+				nds.map((node) => {
+					if (node.id !== source) return node;
+					const updatedChoices = node.data.choices.map((choice) =>
+						choice.id === sourceHandle
+							? { ...choice, nextId: target }
+							: choice
+					);
+					return {
+						...node,
+						data: { ...node.data, choices: updatedChoices },
+					};
+				})
+			);
 		},
-		[setEdges]
+		[setEdges, setNodes]
 	);
 
+	const addNewScene = () => {
+		const newId = `scene${nodes.length + 1}`;
+		const newNode = {
+			id: newId,
+			type: "sceneNode",
+			position: { x: 250, y: 100 + nodes.length * 100 },
+			data: {
+				title: `Scene ${nodes.length + 1}`,
+				scenario: "Describe what happens in this scene...",
+				choices: [
+					{ text: "Choice 1", id: "choice-0" },
+					{ text: "Choice 2", id: "choice-1" },
+				],
+			},
+		};
+		setNodes((nds) => [...nds, newNode]);
+	};
+
+	const nodeTypes = {
+		sceneNode: (props) => <SceneNode {...props} setNodes={setNodes} />,
+	};
+
+	const handleExport = () => {
+		const storyObject = Object.fromEntries(
+			nodes.map((node) => [node.id, node.data])
+		);
+
+		const json = JSON.stringify(storyObject, null, 2);
+
+		// Trigger download
+		const blob = new Blob([json], { type: "application/json" });
+		const url = URL.createObjectURL(blob);
+		const link = document.createElement("a");
+		link.href = url;
+		link.download = "story2.json";
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+	};
+
 	return (
-		<div style={{ width: "100%", height: "100vh" }}>
+		<div style={{ width: "100%", height: "100vh", position: "relative" }}>
+			<button
+				onClick={addNewScene}
+				style={{
+					position: "absolute",
+					top: 16,
+					left: 16,
+					zIndex: 10,
+					padding: "8px 12px",
+					background: "#ffffffdd",
+					border: "1px solid #ccc",
+					borderRadius: "6px",
+					cursor: "pointer",
+					fontWeight: "bold",
+				}}
+			>
+				+ Add Scene
+			</button>
+
+			<button
+				onClick={handleExport}
+				style={{
+					position: "absolute",
+					top: 16,
+					left: 130,
+					zIndex: 10,
+					padding: "8px 12px",
+					background: "#ffffffdd",
+					border: "1px solid #ccc",
+					borderRadius: "6px",
+					cursor: "pointer",
+					fontWeight: "bold",
+				}}
+			>
+				Submit Story
+			</button>
+
 			<ReactFlowProvider>
 				<ReactFlow
 					nodes={nodes}
