@@ -1,7 +1,5 @@
 export interface Choice {
 	text: string;
-	content: string;
-	result: string;
 	nextId: string | null;
 	media?: string;
 }

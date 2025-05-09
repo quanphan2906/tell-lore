@@ -1,80 +1,38 @@
 {
-	"scenes": {
-		"scene1": {
-			"id": "scene1",
-			"title": "The Signal in the Sky",
-			"scenario": "It's been weeks since the world went quiet. No networks. No broadcasts. Tonight, a single beam of light pulses from the distant mountains, piercing the clouds.",
-			"choices": [
-				{
-					"text": "Follow the light",
-					"content": "You pack a bag and set out toward the signal before dawn.",
-					"result": "Your journey begins through abandoned roads, your heart heavy with hope.",
-					"nextId": "scene2"
-				},
-				{
-					"text": "Stay and observe",
-					"content": "You climb to your rooftop with binoculars and begin taking notes.",
-					"result": "You spot figures moving in patterns near the light source — too coordinated to be random.",
-					"nextId": "scene3"
-				}
-			]
-		},
-		"scene2": {
-			"id": "scene2",
-			"title": "Crossing the Wastes",
-			"scenario": "The highway is cracked and overgrown. You pass collapsed overpasses and rusted-out cars. A faint humming noise begins to trail you.",
-			"choices": [
-				{
-					"text": "Investigate the sound",
-					"content": "You duck into a gas station and listen closely.",
-					"result": "An old emergency radio crackles to life with a coded message.",
-					"nextId": "scene4"
-				},
-				{
-					"text": "Keep moving",
-					"content": "You ignore the sound and press on toward the mountains.",
-					"result": "Night falls. You see the light beam intensify as if reacting to your movement.",
-					"nextId": "scene4"
-				}
-			]
-		},
-		"scene3": {
-			"id": "scene3",
-			"title": "Patterns and Paranoia",
-			"scenario": "The signal pulses again, and this time, something responds — a rhythmic flicker from a nearby hilltop. You realize you may not be the only one watching.",
-			"choices": [
-				{
-					"text": "Climb to the hill",
-					"content": "You grab your flashlight and make your way up the hill under cover of night.",
-					"result": "You find a backpack full of maps and a journal that ends mid-sentence.",
-					"nextId": "scene4"
-				},
-				{
-					"text": "Leave a signal back",
-					"content": "You use mirrors and a flashlight to respond in Morse code.",
-					"result": "The beam in the mountains shifts — and now it points directly at your building.",
-					"nextId": "scene4"
-				}
-			]
-		},
-		"scene4": {
-			"id": "scene4",
-			"title": "The Threshold",
-			"scenario": "Whether you traveled far or stayed and observed, you now stand on the edge of something vast. The light pulses steadily. A door-shaped silhouette appears before you.",
-			"choices": [
-				{
-					"text": "Enter the doorway",
-					"content": "You take a deep breath and step through the threshold.",
-					"result": "A warm glow surrounds you as everything fades to white. You feel... remembered.",
-					"nextId": null
-				},
-				{
-					"text": "Turn away",
-					"content": "You step back, uncertain if the world is ready for what lies beyond.",
-					"result": "The beam vanishes. Silence returns. But something has changed inside you.",
-					"nextId": null
-				}
-			]
-		}
+	"scene1": {
+		"id": "scene1",
+		"title": "The Whispering Path",
+		"scenario": "Lina steps onto a mossy forest path, her red backpack bouncing gently. A breeze carries a soft whisper from two directions — one from a shaded glade, the other from a sunlit trail.",
+		"choices": [
+			{ "text": "Follow the shaded glade", "nextId": "scene2" },
+			{ "text": "Take the sunny trail", "nextId": "scene3" }
+		]
+	},
+	"scene2": {
+		"id": "scene2",
+		"title": "Spirit Playground",
+		"scenario": "The glade opens into a small clearing where forest spirits play tag, leaping from mushrooms to rocks. One gestures for Lina to join.",
+		"choices": [
+			{ "text": "Join the game", "nextId": "scene4" },
+			{ "text": "Sit and watch", "nextId": "scene4" }
+		]
+	},
+	"scene3": {
+		"id": "scene3",
+		"title": "The Hat Cat’s Invitation",
+		"scenario": "The cat with the hat tilts its head and gestures toward a small garden gate. 'Picnic?' it purrs, pawing a blueberry tart.",
+		"choices": [
+			{ "text": "Join the picnic", "nextId": "scene4" },
+			{ "text": "Explore past the gate", "nextId": "scene4" }
+		]
+	},
+	"scene4": {
+		"id": "scene4",
+		"title": "The Meadow of Goodbyes",
+		"scenario": "No matter the path, Lina now finds herself at a golden meadow. The spirits wave. The hat cat tips his hat. A breeze lifts her hair — it’s time to return.",
+		"choices": [
+			{ "text": "Say thank you", "nextId": null },
+			{ "text": "Ask to stay longer", "nextId": null }
+		]
 	}
 }

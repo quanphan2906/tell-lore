@@ -57,26 +57,26 @@ const initialNodes: Node[] = [
 		type: "sceneNode",
 		position: { x: 100, y: 100 },
 		data: {
-			title: "The Signal in the Sky",
+			title: "The Whispering Path",
 			scenario:
-				"It's been weeks since the world went quiet. No networks. No broadcasts. Tonight, a single beam of light pulses from the distant mountains, piercing the clouds.",
+				"Lina steps onto a mossy forest path, her red backpack bouncing gently. A breeze carries a soft whisper from two directions — one from a shaded glade, the other from a sunlit trail.",
 			choices: [
-				{ text: "Follow the light", id: "choice-0" },
-				{ text: "Stay and observe", id: "choice-1" },
+				{ text: "Follow the shaded glade", id: "choice-0" },
+				{ text: "Take the sunny trail", id: "choice-1" },
 			],
 		},
 	},
 	{
 		id: "scene2",
 		type: "sceneNode",
-		position: { x: 600, y: 50 },
+		position: { x: 600, y: 30 },
 		data: {
-			title: "Crossing the Wastes",
+			title: "Spirit Playground",
 			scenario:
-				"The highway is cracked and overgrown. You pass collapsed overpasses and rusted-out cars. A faint humming noise begins to trail you.",
+				"The glade opens into a small clearing where forest spirits play tag, leaping from mushrooms to rocks. One gestures for Lina to join.",
 			choices: [
-				{ text: "Investigate the sound", id: "choice-0" },
-				{ text: "Keep moving", id: "choice-1" },
+				{ text: "Join the game", id: "choice-0" },
+				{ text: "Sit and watch", id: "choice-1" },
 			],
 		},
 	},
@@ -85,12 +85,12 @@ const initialNodes: Node[] = [
 		type: "sceneNode",
 		position: { x: 600, y: 300 },
 		data: {
-			title: "Patterns and Paranoia",
+			title: "The Hat Cat’s Invitation",
 			scenario:
-				"The signal pulses again, and this time, something responds — a rhythmic flicker from a nearby hilltop. You realize you may not be the only one watching.",
+				"The cat with the hat tilts its head and gestures toward a small garden gate. 'Picnic?' it purrs, pawing a blueberry tart.",
 			choices: [
-				{ text: "Climb to the hill", id: "choice-0" },
-				{ text: "Leave a signal back", id: "choice-1" },
+				{ text: "Join the picnic", id: "choice-0" },
+				{ text: "Explore past the gate", id: "choice-1" },
 			],
 		},
 	},
@@ -99,12 +99,12 @@ const initialNodes: Node[] = [
 		type: "sceneNode",
 		position: { x: 1100, y: 180 },
 		data: {
-			title: "The Threshold",
+			title: "The Meadow of Goodbyes",
 			scenario:
-				"Whether you traveled far or stayed and observed, you now stand on the edge of something vast. The light pulses steadily. A door-shaped silhouette appears before you.",
+				"No matter the path, Lina now finds herself at a golden meadow. The spirits wave. The hat cat tips his hat. A breeze lifts her hair — it’s time to return.",
 			choices: [
-				{ text: "Enter the doorway", id: "choice-0" },
-				{ text: "Turn away", id: "choice-1" },
+				{ text: "Say thank you", id: "choice-0" },
+				{ text: "Ask to stay longer", id: "choice-1" },
 			],
 		},
 	},

@@ -4,20 +4,15 @@ import { useState, useRef, useEffect } from "react";
 
 interface VideoPlayerProps {
 	sceneId: string;
-	videoType: "scenario" | "result_choice1" | "result_choice2";
 	onEnded: () => void;
 }
 
-export default function VideoPlayer({
-	sceneId,
-	videoType,
-	onEnded,
-}: VideoPlayerProps) {
+export default function VideoPlayer({ sceneId, onEnded }: VideoPlayerProps) {
 	const videoRef = useRef<HTMLVideoElement>(null);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
 
-	const videoSrc = `/assets/videos/${sceneId}/${videoType}.mp4`;
+	const videoSrc = `/assets/videos/${sceneId}.mp4`;
 
 	useEffect(() => {
 		setIsLoading(true);
@@ -26,7 +21,7 @@ export default function VideoPlayer({
 		if (videoRef.current) {
 			videoRef.current.load();
 		}
-	}, [sceneId, videoType]);
+	}, [sceneId]);
 
 	const handleCanPlay = () => {
 		setIsLoading(false);
@@ -74,7 +69,7 @@ export default function VideoPlayer({
 
 			<video
 				ref={videoRef}
-				className="w-full aspect-video"
+				className="aspect-video"
 				onEnded={onEnded}
 				onCanPlay={handleCanPlay}
 				onError={handleError}
