@@ -22,6 +22,7 @@ const SceneNode = ({
 	id,
 	data,
 	setNodes,
+	showVideo,
 }: {
 	id: string;
 	data: {
@@ -30,6 +31,7 @@ const SceneNode = ({
 		choices: { text: string; id: string; nextId?: string }[];
 	};
 	setNodes: (updater: (nds: any[]) => any[]) => void;
+	showVideo: boolean;
 }) => {
 	// Local state for inputs to avoid re-render causing lost focus
 	const [localTitle, setLocalTitle] = useState(data.title);
@@ -71,6 +73,16 @@ const SceneNode = ({
 
 	return (
 		<div className="p-4 bg-white rounded shadow min-w-[250px] border border-gray-300">
+			{showVideo && (
+				<video
+				src={`/assets/videos/${id}.mp4`}
+				autoPlay
+				muted
+				loop
+				playsInline
+				className="mb-2 rounded w-[360px] h-[200px] object-cover"
+				/>
+			)}
 			<input
 				className="font-bold w-full mb-1"
 				value={localTitle}
@@ -220,6 +232,7 @@ const initialEdges: Edge[] = [
 export default function StoryCanvas() {
 	const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
 	const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+	const [showVideos, setShowVideos] = useState(false);
 
 	const onConnect = useCallback(
 		(connection: Connection) => {
@@ -264,17 +277,18 @@ export default function StoryCanvas() {
 	};
 
 	const nodeTypes = {
-		sceneNode: (props) => <SceneNode {...props} setNodes={setNodes} />,
+		sceneNode: (props) => (
+			<SceneNode {...props} setNodes={setNodes} showVideo={showVideos} />
+		),
 	};
 
 	const handleExport = () => {
 		const storyObject = Object.fromEntries(
 			nodes.map((node) => [node.id, node.data])
 		);
-
+	
 		const json = JSON.stringify(storyObject, null, 2);
-
-		// Trigger download
+	
 		const blob = new Blob([json], { type: "application/json" });
 		const url = URL.createObjectURL(blob);
 		const link = document.createElement("a");
@@ -283,7 +297,12 @@ export default function StoryCanvas() {
 		document.body.appendChild(link);
 		link.click();
 		document.body.removeChild(link);
-	};
+	
+		// Delay video reveal by ~3.5 seconds
+		setTimeout(() => {
+			setShowVideos(true);
+		}, 3500);
+	};	
 
 	return (
 		<div style={{ width: "100%", height: "100vh", position: "relative" }}>
