@@ -17,6 +17,7 @@ import {
 
 import "@xyflow/react/dist/style.css";
 import { useCallback, useState, useEffect } from "react";
+import Link from "next/link";
 
 const SceneNode = ({
 	id,
@@ -306,42 +307,60 @@ export default function StoryCanvas() {
 
 	return (
 		<div style={{ width: "100%", height: "100vh", position: "relative" }}>
-			<button
-				onClick={addNewScene}
+			<div
 				style={{
 					position: "absolute",
 					top: 16,
 					left: 16,
 					zIndex: 10,
+					display: "flex",
+					gap: "12px",
+				}}
+				>
+				<button
+					onClick={addNewScene}
+					style={{
 					padding: "8px 12px",
 					background: "#ffffffdd",
 					border: "1px solid #ccc",
 					borderRadius: "6px",
 					cursor: "pointer",
 					fontWeight: "bold",
-				}}
-			>
-				+ Add Scene
-			</button>
+					}}
+				>
+					+ Add Scene
+				</button>
 
-			<button
-				onClick={handleExport}
-				style={{
-					position: "absolute",
-					top: 16,
-					left: 130,
-					zIndex: 10,
+				<button
+					onClick={handleExport}
+					style={{
 					padding: "8px 12px",
 					background: "#ffffffdd",
 					border: "1px solid #ccc",
 					borderRadius: "6px",
 					cursor: "pointer",
 					fontWeight: "bold",
-				}}
-			>
-				Submit Story
-			</button>
+					}}
+				>
+					Submit Story
+				</button>
 
+				<Link
+					href="/"
+					style={{
+					padding: "8px 12px",
+					background: "#ffffffdd",
+					border: "1px solid #ccc",
+					borderRadius: "6px",
+					cursor: "pointer",
+					fontWeight: "bold",
+					textDecoration: "none",
+					color: "black",
+					}}
+				>
+					View Story
+				</Link>
+			</div>
 			<ReactFlowProvider>
 				<ReactFlow
 					nodes={nodes}
