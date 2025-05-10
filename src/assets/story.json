@@ -14,7 +14,7 @@
 		"scenario": "The glade opens into a small clearing where forest spirits play tag, leaping from mushrooms to rocks. One gestures for Lina to join.",
 		"choices": [
 			{ "text": "Join the game", "nextId": "scene4" },
-			{ "text": "Sit and watch", "nextId": "scene4" }
+			{ "text": "Stand and watch", "nextId": "scene4" }
 		]
 	},
 	"scene3": {
