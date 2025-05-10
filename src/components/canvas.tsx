@@ -361,7 +361,7 @@ export default function StoryCanvas() {
 				</button>
 
 				<Link
-					href="/"
+					href="/watch"
 					style={{
 						padding: "8px 12px",
 						border: "1px solid #ccc",
