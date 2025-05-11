@@ -2,7 +2,7 @@
 
 **Built at the [AI Work & Life Hackathon](https://x.com/Jhuang0804/status/1921365087492747323) in NYC, May 2025**
 
-We won [Lore](https://x.com/zehranaqvi_)'s track _For the Obsessesed_. Here was our demo: https://x.com/Jhuang0804/status/1921365106698375379.
+We won [Lore](https://x.com/zehranaqvi_)'s track _For the Obsessesed_. Watch our demo [here](https://x.com/Jhuang0804/status/1921365106698375379).
 
 ## ✨ What We Built
 
