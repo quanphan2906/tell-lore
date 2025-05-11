@@ -163,7 +163,7 @@ const initialNodes: Node[] = [
 				"The glade opens into a small clearing where forest spirits play tag, leaping from mushrooms to rocks. One gestures for Lina to join.",
 			choices: [
 				{ text: "Join the game", id: "choice-0" },
-				{ text: "Sit and watch", id: "choice-1" },
+				{ text: "Stand and watch", id: "choice-1" },
 			],
 		},
 	},
@@ -361,7 +361,7 @@ export default function StoryCanvas() {
 				</button>
 
 				<Link
-					href="/"
+					href="/watch"
 					style={{
 						padding: "8px 12px",
 						border: "1px solid #ccc",
