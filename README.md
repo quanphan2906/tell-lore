@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌿 StoryWeaver: AI-Powered Interactive Storytelling
 
-## Getting Started
+**Built at the [AI Work & Life Hackathon](https://x.com/Jhuang0804/status/1921365087492747323) in NYC, May 2025**
 
-First, run the development server:
+Hosted by [Jacky](https://jackyhuang.org/) from hardlaunch, [Jamesin](https://www.linkedin.com/in/jamesin-seidel-5325b147/) from Chapter One, and [Ryan](https://www.linkedin.com/in/ryan-k-kim/) from Bain Capital Ventures.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+We won [Lore](https://x.com/zehranaqvi_)'s track _For the Obsessesed_. Here was our demo: https://x.com/Jhuang0804/status/1921365106698375379.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ What We Built
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Tell Lore** is a drag-and-drop canvas for creating _interactive_, _animated_ stories — no coding, no animating, just storytelling.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+With StoryWeaver, you can:
 
-## Learn More
+-   Describe each scene in natural language
+-   Define choices for the reader to react to
+-   Visually connect scenes with branching logic
+-   Submit your story and export it to structured JSON
+-   Generate fully animated scenes using AI tools like **Pika Labs**
+-   Deliver an explorable, cinematic experience — as magical as Studio Ghibli
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 💡 Why We Built It
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Interactive storytelling is powerful — it transforms audiences into participants. But creating it traditionally requires:
 
-## Deploy on Vercel
+-   Writing a branching narrative
+-   Storyboarding dozens of scenes
+-   Animating each one individually
+-   Coding transitions and logic
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+We wanted to change that.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Our mission:  
+**Make interactive storytelling as simple as typing a story and connecting the dots.**
+
+Whether you're a teacher, a parent, a writer, or a child — you should be able to bring your story to life and let others explore it.
+
+---
+
+## 🧠 How It Works
+
+-   Scenes are created as visual blocks on a canvas
+-   Each scene includes:
+    -   A title
+    -   A description ("scenario")
+    -   Two choices
+-   Choices can be dragged to connect to the next scene
+-   You can edit everything inline, visually
+-   When you're done, click **Submit** to export a `story.json` and power your interactive player or AI video pipeline
+
+---
+
+## 🛠 Tech Stack
+
+-   **Next.js, React, and TypeScript** — frontend
+-   **@xyflow/react** (React Flow) — interactive graph editor
+-   **Pika Labs** — AI video generation from scenes
+-   **Tailwind CSS** — lightweight UI
