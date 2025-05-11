@@ -2,8 +2,6 @@
 
 **Built at the [AI Work & Life Hackathon](https://x.com/Jhuang0804/status/1921365087492747323) in NYC, May 2025**
 
-Hosted by [Jacky](https://jackyhuang.org/) from hardlaunch, [Jamesin](https://www.linkedin.com/in/jamesin-seidel-5325b147/) from Chapter One, and [Ryan](https://www.linkedin.com/in/ryan-k-kim/) from Bain Capital Ventures.
-
 We won [Lore](https://x.com/zehranaqvi_)'s track _For the Obsessesed_. Here was our demo: https://x.com/Jhuang0804/status/1921365106698375379.
 
 ## ✨ What We Built
