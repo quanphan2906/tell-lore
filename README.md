@@ -1,4 +1,4 @@
-# 🌿 StoryWeaver: AI-Powered Interactive Storytelling
+# 🌿 Tell Lore: AI-Powered Interactive Storytelling
 
 **Built at the [AI Work & Life Hackathon](https://x.com/Jhuang0804/status/1921365087492747323) in NYC, May 2025**
 
