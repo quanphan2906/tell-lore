@@ -1,8 +1,10 @@
 # 🌿 Tell Lore: AI-Powered Interactive Storytelling
 
-**Built at the [AI Work & Life Hackathon](https://x.com/Jhuang0804/status/1921365087492747323) in NYC, May 2025**
+Built at the [AI Work & Life Hackathon](https://x.com/Jhuang0804/status/1921365087492747323) in NYC, May 2025.
 
-We won [Lore](https://x.com/zehranaqvi_)'s track _For the Obsessesed_. Watch our demo [here](https://x.com/Jhuang0804/status/1921365106698375379).
+Won [Lore](https://x.com/zehranaqvi_)'s track _For the Obsessesed_.
+
+Watch our demo [here](https://x.com/Jhuang0804/status/1921365106698375379).
 
 ## ✨ What We Built
 
@@ -16,8 +18,6 @@ With StoryWeaver, you can:
 -   Submit your story and export it to structured JSON
 -   Generate fully animated scenes using AI tools like **Pika Labs**
 -   Deliver an explorable, cinematic experience — as magical as Studio Ghibli
-
----
 
 ## 💡 Why We Built It
 
@@ -35,8 +35,6 @@ Our mission:
 
 Whether you're a teacher, a parent, a writer, or a child — you should be able to bring your story to life and let others explore it.
 
----
-
 ## 🧠 How It Works
 
 -   Scenes are created as visual blocks on a canvas
@@ -47,8 +45,6 @@ Whether you're a teacher, a parent, a writer, or a child — you should be able 
 -   Choices can be dragged to connect to the next scene
 -   You can edit everything inline, visually
 -   When you're done, click **Submit** to export a `story.json` and power your interactive player or AI video pipeline
-
----
 
 ## 🛠 Tech Stack
 
