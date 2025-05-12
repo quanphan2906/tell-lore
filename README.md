@@ -10,7 +10,7 @@ Watch our demo [here](https://x.com/Jhuang0804/status/1921365106698375379).
 
 **Tell Lore** is a drag-and-drop canvas for creating _interactive_, _animated_ stories — no coding, no animating, just storytelling.
 
-With StoryWeaver, you can:
+With Tell Lore, you can:
 
 -   Describe each scene in natural language
 -   Define choices for the reader to react to
